@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { IBM_Plex_Mono, Lato, Nunito } from 'next/font/google';
 
+import { WhatsAppWidget } from '@/components/whatsapp-widget/whatsapp-widget';
 import Providers from '@/providers';
 import './globals.css';
 
@@ -136,6 +137,15 @@ export default function AppLayout({
       {/* <link rel='icon' href='/favicons/favicon.svg' /> */}
       <body className={`font-body antialiased`}>
         <Providers>{children}</Providers>
+        <WhatsAppWidget
+          number='12345'
+          message='Hello! I have a question about your services.'
+          title='Chat with us'
+          subtitle='Typically replies in minutes'
+          companyName='Support Team'
+          avatar='/favicons/favicon.svg'
+          placeholder='Type your message...'
+        />
       </body>
     </html>
   );

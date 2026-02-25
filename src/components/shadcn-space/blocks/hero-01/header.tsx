@@ -1,6 +1,7 @@
 'use client';
 
 import Logo from '@/assets/logo/logo';
+import { AnimatedThemeToggler } from '@/components/extends/animated-theme-toggler';
 import { Button } from '@/components/ui/button';
 import {
   NavigationMenu,
@@ -119,6 +120,7 @@ const Header = ({ className }: HeaderProps) => {
 
         {/* Desktop CTA */}
         <div className='flex gap-4'>
+          <AnimatedThemeToggler />
           <CollaborateButton className='hidden lg:flex' />
 
           <div className='lg:hidden'>
