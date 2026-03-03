@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { IBM_Plex_Mono, Lato, Nunito } from 'next/font/google';
 
+import AIBot from '@/components/shared/ai-bot';
 import { WhatsAppWidget } from '@/components/whatsapp-widget/whatsapp-widget';
 import Providers from '@/providers';
 import './globals.css';
@@ -129,6 +130,8 @@ export default function AppLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const geminiKey = process.env.GEMINI_KEY;
+
   return (
     <html
       lang='en'
@@ -146,6 +149,7 @@ export default function AppLayout({
           avatar='/favicons/favicon.svg'
           placeholder='Type your message...'
         />
+        <AIBot apiKey={geminiKey} />
       </body>
     </html>
   );
