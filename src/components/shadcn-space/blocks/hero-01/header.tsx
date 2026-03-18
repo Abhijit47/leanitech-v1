@@ -22,6 +22,8 @@ import { cn } from '@/lib/utils';
 import { Icon } from '@iconify/react';
 import { ArrowUpRight } from 'lucide-react';
 import { motion } from 'motion/react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useCallback, useEffect, useState } from 'react';
 
 export type NavigationSection = {
@@ -54,7 +56,10 @@ const Header = ({ className }: HeaderProps) => {
   const [sticky, setSticky] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
-  const [mounted, setMounted] = useState(false);
+  // const [mounted, setMounted] = useState(false);
+  const mounted = typeof window !== 'undefined';
+
+  const pathname = usePathname();
 
   const handleScroll = useCallback(() => {
     setSticky(window.scrollY >= 50);
@@ -65,7 +70,7 @@ const Header = ({ className }: HeaderProps) => {
   }, []);
 
   useEffect(() => {
-    setMounted(true);
+    // setMounted(true);
     window.addEventListener('scroll', handleScroll);
     window.addEventListener('resize', handleResize);
 
@@ -107,12 +112,15 @@ const Header = ({ className }: HeaderProps) => {
               {navigations.map((navItem) => (
                 <NavigationMenuItem key={navItem.title}>
                   <NavigationMenuLink
-                    href={navItem.href}
+                    asChild
                     className={cn(
                       'px-2 lg:px-4 py-2 text-sm font-medium rounded-full text-muted-foreground hover:text-foreground hover:bg-background outline outline-transparent hover:outline-border hover:shadow-xs transition tracking-normal',
-                      navItem.isActive ? 'bg-background text-foreground' : '',
+                      // navItem.isActive ? 'bg-background text-foreground' : '',
+                      pathname === navItem.href
+                        ? 'bg-background text-foreground'
+                        : '',
                     )}>
-                    {navItem.title}
+                    <Link href={navItem.href}>{navItem.title}</Link>
                   </NavigationMenuLink>
                 </NavigationMenuItem>
               ))}

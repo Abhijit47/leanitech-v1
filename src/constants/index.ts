@@ -5,12 +5,12 @@ import { AvatarList } from '@/components/shadcn-space/blocks/hero-01/hero';
 export const navigations: NavigationSection[] = [
   {
     title: 'Home',
-    href: '#home',
+    href: '/',
     isActive: true,
   },
   {
     title: 'About us',
-    href: '#about-us',
+    href: '/about',
   },
   {
     title: 'Services',
@@ -30,7 +30,7 @@ export const navigations: NavigationSection[] = [
   },
   {
     title: 'Blogs',
-    href: '#blogs',
+    href: '/blogs',
   },
   {
     title: 'Contact',

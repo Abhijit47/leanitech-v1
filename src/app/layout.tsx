@@ -130,8 +130,6 @@ export default function AppLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const geminiKey = process.env.GEMINI_KEY;
-
   return (
     <html
       lang='en'
@@ -149,7 +147,7 @@ export default function AppLayout({
           avatar='/favicons/favicon.svg'
           placeholder='Type your message...'
         />
-        <AIBot apiKey={geminiKey} />
+        <AIBot type='gemini' />
       </body>
     </html>
   );
