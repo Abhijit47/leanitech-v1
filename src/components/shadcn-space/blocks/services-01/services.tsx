@@ -13,7 +13,7 @@ import {
   SwatchBook,
   WandSparkles,
 } from 'lucide-react';
-import { motion } from 'motion/react';
+import { motion, Variants } from 'motion/react';
 
 type ServiceData = {
   service_icon: LucideIcon;
@@ -70,7 +70,7 @@ const Services = () => {
         ease: 'easeInOut',
       },
     }),
-  };
+  } as Variants;
 
   return (
     <section id='services' className='bg-background py-10'>

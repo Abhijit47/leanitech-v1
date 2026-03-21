@@ -2,7 +2,7 @@
 
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
-import { motion } from 'motion/react';
+import { motion, Variants } from 'motion/react';
 
 type PortfolioData = {
   portfolio_image: string;
@@ -52,7 +52,7 @@ const Portfolio = () => {
         ease: 'easeInOut',
       },
     }),
-  };
+  } as Variants;
 
   return (
     <section id='portfolio' className='bg-background py-10'>
