@@ -1,9 +1,9 @@
 'use client';
+
+import Marquee from '@/components/extends/marquee';
 import { brandList } from '@/constants';
 import { motion } from 'motion/react';
 import Image from 'next/image';
-import { Marquee } from './marquee';
-
 export interface BrandList {
   image: string;
   name: string;

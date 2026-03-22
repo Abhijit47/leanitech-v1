@@ -1,126 +1,225 @@
-import Marquee from '@/components/extends/marquee';
-import { Avatar, AvatarFallback } from '@/components/ui/avatar';
-import { Button } from '@/components/ui/button';
-import Link from 'next/link';
-import { ComponentProps } from 'react';
-// import Marquee from '../extends/marquee';
+'use client';
 
-const testimonials = [
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Button } from '@/components/ui/button';
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from '@/components/ui/carousel';
+import { cn } from '@/lib/utils';
+import { Star } from 'lucide-react';
+import * as React from 'react';
+
+type EmblaEventType =
+  | 'init'
+  | 'pointerDown'
+  | 'pointerUp'
+  | 'scroll'
+  | 'select'
+  | 'settle'
+  | 'destroy'
+  | 'reInit'
+  | 'resize';
+
+type CarouselApi = {
+  scrollPrev: () => void;
+  scrollNext: () => void;
+  scrollTo: (index: number) => void;
+  canScrollPrev: () => boolean;
+  canScrollNext: () => boolean;
+  selectedScrollSnap: () => number;
+  scrollSnapList: () => number[];
+  on: (event: EmblaEventType, callback: () => void) => void;
+  off: (event: EmblaEventType, callback: () => void) => void;
+};
+
+interface Testimonial {
+  id: number;
+  name: string;
+  role: string;
+  image: string;
+  review: string;
+  rating: number;
+}
+
+const testimonials: Testimonial[] = [
   {
     id: 1,
-    name: 'John Doe',
-    designation: 'Software Engineer',
-    company: 'TechCorp',
-    testimonial:
-      'This product has completely transformed the way we work. The efficiency and ease of use are unmatched!',
-    avatar: 'https://randomuser.me/api/portraits/men/1.jpg',
+    name: 'Alison Dawn',
+    role: 'Developer',
+    image: 'https://notion-avatars.netlify.app/api/avatar?preset=female-1',
+    review:
+      'Pellentesque in ip sum dolor amet tellus vestibulum tincidunt. Pellentesque dignissim quis turpis quis faucibus.',
+    rating: 4.5,
   },
   {
     id: 2,
-    name: 'Sophia Lee',
-    designation: 'Data Analyst',
-    company: 'InsightTech',
-    testimonial:
-      'This tool has saved me hours of work! The analytics and reporting features are incredibly powerful.',
-    avatar: 'https://randomuser.me/api/portraits/women/6.jpg',
+    name: 'Daniel Peter',
+    role: 'Product Designer',
+    image: 'https://notion-avatars.netlify.app/api/avatar?preset=male-2',
+    review:
+      'Pellentesque in ip sum dolor amet tellus vestibulum tincidunt. Pellentesque dignissim quis turpis quis faucibus.',
+    rating: 5.0,
   },
   {
     id: 3,
-    name: 'Michael Johnson',
-    designation: 'UX Designer',
-    company: 'DesignPro',
-    testimonial:
-      'An amazing tool that simplifies complex tasks. Highly recommended for professionals in the industry.',
-    avatar: 'https://randomuser.me/api/portraits/men/3.jpg',
+    name: 'Sarah Johnson',
+    role: 'Restaurant Owner',
+    image: 'https://notion-avatars.netlify.app/api/avatar?preset=female-3',
+    review:
+      'Pellentesque in ip sum dolor amet tellus vestibulum tincidunt. Pellentesque dignissim quis turpis quis faucibus.',
+    rating: 4.8,
   },
   {
     id: 4,
-    name: 'Emily Davis',
-    designation: 'Marketing Specialist',
-    company: 'BrandBoost',
-    testimonial:
-      "I've seen a significant improvement in our team's productivity since we started using this service.",
-    avatar: 'https://randomuser.me/api/portraits/women/4.jpg',
+    name: 'Michael Chen',
+    role: 'Food Critic',
+    image: 'https://notion-avatars.netlify.app/api/avatar?preset=male-4',
+    review:
+      'Pellentesque in ip sum dolor amet tellus vestibulum tincidunt. Pellentesque dignissim quis turpis quis faucibus.',
+    rating: 4.9,
   },
   {
     id: 5,
-    name: 'Daniel Martinez',
-    designation: 'Full-Stack Developer',
-    company: 'CodeCrafters',
-    testimonial:
-      "The best investment we've made! The support team is also super responsive and helpful.",
-    avatar: 'https://randomuser.me/api/portraits/men/5.jpg',
-  },
-  {
-    id: 6,
-    name: 'Jane Smith',
-    designation: 'Product Manager',
-    company: 'InnovateX',
-    testimonial:
-      'The user experience is top-notch! The interface is clean, intuitive, and easy to navigate.',
-    avatar: 'https://randomuser.me/api/portraits/women/2.jpg',
+    name: 'Emma Wilson',
+    role: 'Chef',
+    image: 'https://notion-avatars.netlify.app/api/avatar?preset=female-2',
+    review:
+      'Pellentesque in ip sum dolor amet tellus vestibulum tincidunt. Pellentesque dignissim quis turpis quis faucibus.',
+    rating: 4.7,
   },
 ];
 
-const Testimonials = () => (
-  <div id='testimonials' className='flex justify-center items-center py-20'>
-    <div className='h-full w-full'>
-      <h2 className='mb-12 text-4xl md:text-5xl font-bold text-center tracking-tight px-6'>
-        Testimonials
-      </h2>
-      <div className='relative'>
-        <div className='z-10 absolute left-0 inset-y-0 w-[15%] bg-linear-to-r from-background to-transparent' />
-        <div className='z-10 absolute right-0 inset-y-0 w-[15%] bg-linear-to-l from-background to-transparent' />
-        <Marquee pauseOnHover className='[--duration:20s]'>
-          <TestimonialList />
-        </Marquee>
-        <Marquee pauseOnHover reverse className='mt-0 [--duration:20s]'>
-          <TestimonialList />
-        </Marquee>
-      </div>
-    </div>
+const RatingStars = ({ rating }: { rating: number }) => (
+  <div className='flex items-center gap-1'>
+    {[...Array(5)].map((_, index) => (
+      <Star
+        key={index}
+        className={cn(
+          'size-4',
+          index < Math.floor(rating) ? 'fill-foreground' : 'fill-none',
+        )}
+      />
+    ))}
+    <span className='text-muted-foreground ms-2 text-sm'>({rating})</span>
   </div>
 );
 
-const TestimonialList = () =>
-  testimonials.map((testimonial) => (
-    <div
-      key={testimonial.id}
-      className='min-w-96 max-w-sm bg-accent rounded-xl p-6'>
-      <div className='flex items-center justify-between'>
-        <div className='flex items-center gap-4'>
-          <Avatar>
-            <AvatarFallback className='text-xl font-medium bg-primary text-primary-foreground'>
-              {testimonial.name.charAt(0)}
-            </AvatarFallback>
-          </Avatar>
-          <div>
-            <p className='text-lg font-semibold'>{testimonial.name}</p>
-            <p className='text-sm text-gray-500'>{testimonial.designation}</p>
+export default function Testimonial({ className }: { className?: string }) {
+  const [api, setApi] = React.useState<CarouselApi | null>(null);
+  const [current, setCurrent] = React.useState(0);
+
+  React.useEffect(() => {
+    if (!api) return;
+
+    const onSelect = () => {
+      setCurrent(api.selectedScrollSnap());
+    };
+
+    api.on('select', onSelect);
+    return () => {
+      api.off('select', onSelect);
+    };
+  }, [api]);
+
+  return (
+    <section className={cn('py-12 lg:py-20', className)}>
+      <div className='container mx-auto max-w-7xl px-6 lg:px-16'>
+        <header className='mb-16 text-center'>
+          <h2 className='text-3xl font-bold text-balance md:text-4xl'>
+            Our Clients Review
+          </h2>
+        </header>
+
+        <Carousel
+          className='w-full'
+          setApi={(api) => {
+            // Only update state if api is defined
+            if (api) {
+              setApi(api);
+            } else {
+              setApi(null);
+            }
+          }}
+          opts={{
+            align: 'start',
+            loop: true,
+          }}>
+          <CarouselContent className='-ml-1'>
+            {testimonials.map((testimonial) => (
+              <CarouselItem
+                key={testimonial.id}
+                className='basis-full px-4 last:pe-0 sm:basis-1/2 lg:basis-1/3'>
+                <Card className='h-full overflow-hidden'>
+                  <CardHeader className='gap-0'>
+                    <div className='flex items-center gap-4'>
+                      <Avatar className='bg-muted size-12'>
+                        <AvatarImage
+                          src={testimonial.image}
+                          alt={testimonial.name}
+                          className='size-12'
+                        />
+                        <AvatarFallback className='bg-card'>
+                          {testimonial.name[0]}
+                        </AvatarFallback>
+                      </Avatar>
+                      <div>
+                        <CardTitle className='text-foreground font-semibold'>
+                          {testimonial.name}
+                        </CardTitle>
+                        <p className='text-muted-foreground text-sm'>
+                          {testimonial.role}
+                        </p>
+                      </div>
+                    </div>
+                  </CardHeader>
+                  <CardContent>
+                    <p className='text-muted-foreground'>
+                      {testimonial.review}
+                    </p>
+                  </CardContent>
+                  <CardFooter>
+                    <RatingStars rating={testimonial.rating} />
+                  </CardFooter>
+                </Card>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious
+            variant='outline'
+            className='hidden cursor-pointer lg:flex'
+          />
+          <CarouselNext
+            variant='outline'
+            className='hidden cursor-pointer lg:flex'
+          />
+          <div className='mt-8 flex items-center justify-center gap-2'>
+            {testimonials.map((_, index) => (
+              <Button
+                variant='ghost'
+                key={index}
+                onClick={() => api?.scrollTo(index)}
+                className={cn(
+                  'size-2 cursor-pointer rounded-full p-0! transition-all',
+                  current === index ? 'bg-foreground w-6' : 'bg-muted',
+                )}
+                aria-label={`Go to slide ${index + 1}`}
+                aria-current={current === index ? 'true' : 'false'}
+              />
+            ))}
           </div>
-        </div>
-        <Button variant='ghost' size='icon' asChild>
-          <Link href='#' target='_blank'>
-            <TwitterLogo className='w-4 h-4' />
-          </Link>
-        </Button>
+        </Carousel>
       </div>
-      <p className='mt-5 text-[17px]'>{testimonial.testimonial}</p>
-    </div>
-  ));
-
-const TwitterLogo = (props: ComponentProps<'svg'>) => (
-  <svg
-    role='img'
-    viewBox='0 0 24 24'
-    xmlns='http://www.w3.org/2000/svg'
-    {...props}>
-    <title>X</title>
-    <path
-      fill='currentColor'
-      d='M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z'
-    />
-  </svg>
-);
-
-export default Testimonials;
+    </section>
+  );
+}

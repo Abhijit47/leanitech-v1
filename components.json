@@ -21,6 +21,7 @@
   },
   "registries": {
     "@shadcn-space": "https://shadcnspace.com/r/{name}.json",
-    "@tailark": "https://tailark.com/r/{name}.json"
+    "@tailark": "https://tailark.com/r/{name}.json",
+    "@componentry": "https://componentry.fun/r/{name}.json"
   }
 }
