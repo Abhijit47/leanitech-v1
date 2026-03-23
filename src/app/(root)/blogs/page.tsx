@@ -9,10 +9,13 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
+import { siteMetadata } from '@/constants/seo';
 import { Icon } from '@iconify/react';
 import { allPosts } from 'content-collections';
 import Image from 'next/image';
 import Link from 'next/link';
+
+export const metadata = siteMetadata('Blogs');
 
 export default function BlogsPage() {
   const count = 50; // Adjust the number of meteors as needed

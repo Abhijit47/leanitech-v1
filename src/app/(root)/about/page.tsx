@@ -9,6 +9,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
+import { siteMetadata } from '@/constants/seo';
 import LogoCloud1 from '@/features/about/components/logo-cloud-1';
 import { cn } from '@/lib/utils';
 import { ArrowUpRight } from 'lucide-react';
@@ -52,6 +53,8 @@ const teamMembers = [
     avatar: 'https://metafi-nextjs-template.vercel.app/images/team/6.webp',
   },
 ];
+
+export const metadata = siteMetadata('About Us');
 
 export default function AboutPage() {
   const cardClasses = 'bg-transparent border-0 rounded-none shadow-none px-0';
