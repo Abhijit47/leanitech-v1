@@ -49,7 +49,9 @@ export default function AppLayout({
       addressLocality: 'Bengaluru',
       addressRegion: 'Karnataka',
       addressCountry: 'IN',
-      postOfficeBoxNumber: '560086',
+      postOfficeBoxNumber:
+        '11th cross road, West of Chord Road, 2nd Stage, Nagapura, Bengaluru, Karnataka, IN - 560086',
+      postalCode: '560086',
     },
     keywords: seo.keywords.join(', '),
   };
