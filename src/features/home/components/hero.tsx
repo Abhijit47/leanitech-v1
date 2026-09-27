@@ -29,7 +29,9 @@ function HeroSection() {
   return (
     <section
       id='home'
-      className={'max-w-(--breakpoint-xl) mx-auto px-4 sm:px-6'}>
+      className={
+        'max-w-(--breakpoint-xl) mx-auto px-4 sm:px-6 overflow-x-hidden'
+      }>
       <div className='relative w-full h-full'>
         {!isDev && (
           <div className='absolute inset-0 pointer-events-none -z-1'>

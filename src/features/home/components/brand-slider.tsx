@@ -13,7 +13,10 @@ export interface BrandList {
 
 function BrandSlider() {
   return (
-    <section className={'max-w-(--breakpoint-xl) mx-auto px-4 sm:px-6'}>
+    <section
+      className={
+        'max-w-(--breakpoint-xl) mx-auto px-4 sm:px-6 overflow-x-hidden'
+      }>
       <div className='py-6 md:py-10'>
         <motion.div
           initial={{ opacity: 0, y: 32 }}
