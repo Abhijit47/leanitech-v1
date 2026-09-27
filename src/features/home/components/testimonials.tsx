@@ -4,7 +4,7 @@ import { testimonials } from '@/constants';
 
 export default function Testimonials() {
   return (
-    <section id='testimonials' className={'space-y-12 overflow-x-hidden'}>
+    <section id='testimonials' className={'space-y-12 overflow-hidden'}>
       <div className='max-w-2xl mx-auto text-center'>
         <AfterBeforeWrapper className='py-1'>
           <h2 className='text-3xl font-bold text-balance md:text-4xl lg:text-5xl'>

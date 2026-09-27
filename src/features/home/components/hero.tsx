@@ -30,7 +30,7 @@ function HeroSection() {
     <section
       id='home'
       className={
-        'max-w-(--breakpoint-xl) mx-auto px-4 sm:px-6 overflow-x-hidden'
+        'max-w-(--breakpoint-xl) mx-auto px-4 sm:px-6 overflow-hidden'
       }>
       <div className='relative w-full h-full'>
         {!isDev && (

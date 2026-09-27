@@ -15,7 +15,7 @@ function BrandSlider() {
   return (
     <section
       className={
-        'max-w-(--breakpoint-xl) mx-auto px-4 sm:px-6 overflow-x-hidden'
+        'max-w-(--breakpoint-xl) mx-auto px-4 sm:px-6 overflow-hidden'
       }>
       <div className='py-6 md:py-10'>
         <motion.div

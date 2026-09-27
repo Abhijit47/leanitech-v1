@@ -10,7 +10,7 @@ const Bentogrid = () => {
     <section
       id='features'
       className={
-        'max-w-(--breakpoint-xl) mx-auto px-4 sm:px-6 overflow-x-hidden'
+        'max-w-(--breakpoint-xl) mx-auto px-4 sm:px-6 overflow-hidden'
       }>
       <div className='py-11 md:py-20'>
         <div className='container flex flex-col gap-12 mx-auto'>

@@ -65,7 +65,7 @@ export default function FAQsTwo() {
   return (
     <section
       id='faqs'
-      className='py-16 md:py-24 max-w-(--breakpoint-xl) mx-auto px-4 sm:px-6 overflow-x-hidden'>
+      className='py-16 md:py-24 max-w-(--breakpoint-xl) mx-auto px-4 sm:px-6 overflow-hidden'>
       <div className='max-w-xl mx-auto text-center'>
         <AfterBeforeWrapper className='py-1'>
           <h2 className='text-3xl font-bold text-balance md:text-4xl lg:text-5xl'>
