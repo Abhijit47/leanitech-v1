@@ -85,7 +85,7 @@ export default function MobileMenu() {
             <SheetDescription className='sr-only'>
               Main navigation links
             </SheetDescription>
-            <div className={'fixed top-17 right-8'}>
+            <div className={'fixed top-17 right-5'}>
               <AnimatedThemeToggler />
             </div>
             <NavigationMenu
@@ -119,7 +119,9 @@ export default function MobileMenu() {
               </NavigationMenuList>
             </NavigationMenu>
 
-            <AfterBeforeWrapper className={'before:w-[140vw] after:w-[140vw]'}>
+            <AfterBeforeWrapper
+            // className={'before:w-[140vw] after:w-[140vw]'}
+            >
               <div className='w-fit'>
                 <CollaborateButton>Let&apos;s Collaborate</CollaborateButton>
               </div>
@@ -128,9 +130,10 @@ export default function MobileMenu() {
 
           <div className='mt-auto flex flex-col gap-4'>
             <AfterBeforeWrapper
-              className={
-                'before:w-[150vw] after:w-[150vw] md:before:w-[140vw] md:after:w-[140vw]'
-              }>
+            // className={
+            //   'before:w-[150vw] after:w-[150vw] md:before:w-[140vw] md:after:w-[140vw]'
+            // }
+            >
               <div className='flex gap-3'>
                 {socialLinks.map((icon) => (
                   <Link
