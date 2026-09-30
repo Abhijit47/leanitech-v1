@@ -28,7 +28,7 @@ export default function BlogsPage() {
   return (
     <main
       className={
-        'relative pt-8 sm:pt-12 md:pt-16 lg:pt-20 xl:pt-24 space-y-6 sm:space-y-8 md:space-y-12 lg:space-y-16'
+        'relative pt-24 sm:pt-28 md:pt-32 lg:pt-36 xl:pt-36 space-y-6 sm:space-y-8 md:space-y-12 lg:space-y-16'
       }>
       {!isDev && (
         <div className='absolute inset-0 pointer-events-none -z-1'>

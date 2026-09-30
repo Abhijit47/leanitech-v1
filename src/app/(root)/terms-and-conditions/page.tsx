@@ -17,7 +17,7 @@ export default function TermsAndConditionsPage() {
   const terms = allTerms[0];
 
   return (
-    <main className={'pt-8 sm:pt-12 md:pt-16 lg:pt-20'}>
+    <main className={'pt-24 sm:pt-28 md:pt-32 lg:pt-36 xl:pt-36'}>
       <section
         className={'max-w-(--breakpoint-lg) w-full px-4 2xl:px-0 mx-auto'}>
         <Card>

@@ -10,7 +10,7 @@ export const metadata = siteMetadata('Contact Us');
 
 export default function ContactUs() {
   return (
-    <main className='py-16 xs:py-20 sm:py-16 md:py-12 lg:py-8 space-y-8 md:space-y-12 lg:space-y-16 relative'>
+    <main className='py-24 sm:py-28 md:py-32 lg:py-36 xl:py-36 space-y-8 md:space-y-12 lg:space-y-16 relative'>
       {!isDev && (
         <div className='absolute inset-0 pointer-events-none -z-1'>
           <SplashCursor

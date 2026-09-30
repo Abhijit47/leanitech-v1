@@ -9,7 +9,7 @@ export const metadata = siteMetadata('Our Expertise');
 
 export default function ServicePage() {
   return (
-    <main className='py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24 space-y-8'>
+    <main className='py-24 sm:py-28 md:py-32 lg:py-36 xl:py-36 space-y-8'>
       {!isDev && (
         <div className='absolute inset-0 pointer-events-none -z-1'>
           <SplashCursor
