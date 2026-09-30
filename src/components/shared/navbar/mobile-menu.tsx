@@ -24,7 +24,7 @@ import { Route } from 'next';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useCallback, useEffect, useState } from 'react';
-import AfterBeforeWrapper from '../after-before-wrapper';
+// import AfterBeforeWrapper from '../after-before-wrapper';
 
 export default function MobileMenu() {
   const [isOpen, setIsOpen] = useState(false);
@@ -119,34 +119,36 @@ export default function MobileMenu() {
               </NavigationMenuList>
             </NavigationMenu>
 
-            <AfterBeforeWrapper
-            // className={'before:w-[140vw] after:w-[140vw]'}
-            >
+            <div className={'isolate'}>
+              {/* <AfterBeforeWrapper
+              // className={'before:w-[140vw] after:w-[140vw]'}
+              > */}
               <div className='w-fit'>
                 <CollaborateButton>Let&apos;s Collaborate</CollaborateButton>
               </div>
-            </AfterBeforeWrapper>
+              {/* </AfterBeforeWrapper> */}
+            </div>
           </div>
 
           <div className='mt-auto flex flex-col gap-4'>
-            <AfterBeforeWrapper
+            {/* <AfterBeforeWrapper
             // className={
             //   'before:w-[150vw] after:w-[150vw] md:before:w-[140vw] md:after:w-[140vw]'
             // }
-            >
-              <div className='flex gap-3'>
-                {socialLinks.map((icon) => (
-                  <Link
-                    key={icon.id}
-                    onClick={() => setIsOpen(false)}
-                    href={icon.href as Route}
-                    target='_blank'
-                    className='flex items-center justify-center rounded-full outline outline-border hover:bg-muted transition p-3 shadow-xs'>
-                    {icon.icon}
-                  </Link>
-                ))}
-              </div>
-            </AfterBeforeWrapper>
+            > */}
+            <div className='flex gap-3'>
+              {socialLinks.map((icon) => (
+                <Link
+                  key={icon.id}
+                  onClick={() => setIsOpen(false)}
+                  href={icon.href as Route}
+                  target='_blank'
+                  className='flex items-center justify-center rounded-full outline outline-border hover:bg-muted transition p-3 shadow-xs'>
+                  {icon.icon}
+                </Link>
+              ))}
+            </div>
+            {/* </AfterBeforeWrapper> */}
 
             <p className='text-sm text-muted-foreground'>
               &copy; {new Date().getFullYear()} Leanitech. All Rights Reserved.
