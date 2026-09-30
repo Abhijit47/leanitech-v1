@@ -79,7 +79,7 @@ export default function MobileMenu() {
           </SheetClose>
         </div>
 
-        <div className='flex flex-col gap-12 px-4 pb-6 overflow-y-auto mt-auto'>
+        <div className='flex flex-col gap-12 px-4 pb-6 overflow-y-auto mt-6'>
           <div className='flex flex-col gap-8 relative'>
             <SheetTitle className='sr-only'>Menu</SheetTitle>
             <SheetDescription className='sr-only'>

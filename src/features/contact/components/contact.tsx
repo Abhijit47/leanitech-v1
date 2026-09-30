@@ -43,7 +43,7 @@ export function ContactBlock() {
   return (
     <section
       id='contact'
-      className='max-w-(--breakpoint-xl) mx-auto px-4 sm:px-6 w-full lg:py-16 overflow-hidden'>
+      className='max-w-(--breakpoint-xl) mx-auto px-4 sm:px-6 w-full lg:py-16'>
       {/* <div className='w-full'> */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}

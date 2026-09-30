@@ -21,10 +21,7 @@ type Features = {
 
 const Feature = ({ featureData }: { featureData: Features }) => {
   return (
-    <section
-      className={
-        'max-w-(--breakpoint-xl) mx-auto px-4 sm:px-6 overflow-hidden'
-      }>
+    <section className={'max-w-(--breakpoint-xl) mx-auto px-4 sm:px-6'}>
       <div className='flex flex-col gap-8 md:gap-12'>
         <motion.div
           initial={{ y: -20, opacity: 0 }}

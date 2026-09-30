@@ -10,7 +10,7 @@ const Portfolios = () => {
   return (
     <section
       id='portfolios'
-      className='bg-transparent max-w-(--breakpoint-xl)x mx-auto px-4x sm:px-6x py-10 overflow-hidden'>
+      className='bg-transparent max-w-(--breakpoint-xl)x mx-auto px-4x sm:px-6x py-10'>
       <div className='flex flex-col items-center justify-center w-full gap-8 sm:gap-12'>
         {/* Heading */}
         <div className='flex flex-col items-center justify-center gap-4 duration-700 ease-in-out animate-in fade-in slide-in-from-top-8'>

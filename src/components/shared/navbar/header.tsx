@@ -19,7 +19,7 @@ import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useCallback, useEffect, useState } from 'react';
-import { LeftSidePattern, RightSidePattern } from '../side-patterns';
+// import { LeftSidePattern, RightSidePattern } from '../side-patterns';
 
 export type NavigationSection = {
   title: string;
@@ -72,8 +72,10 @@ const Header = ({ className }: HeaderProps) => {
       viewport={{ once: true }}
       transition={{ duration: 0.7, ease: 'easeInOut' }}
       className={cn(
-        'z-50 sticky h-16',
+        // 'z-50 sticky h-16',
+        'z-50 fixed inset-x-0 h-16',
         isMobile ? '-top-14' : 'top-0',
+        sticky ? 'mt-4' : '',
         // !sticky ? 'top-0' : '-top-52 md:top-4 transition-all duration-300',
         // 'inset-x-0',
         // 'flex items-center justify-center',
@@ -85,7 +87,8 @@ const Header = ({ className }: HeaderProps) => {
         'grid grid-cols-1 grid-rows-[1fr_1px_auto_1px_auto] [--gutter-width:2.5rem] md:grid-cols-[var(--gutter-width)_minmax(0,var(--breakpoint-2xl))_var(--gutter-width)] justify-center',
         className,
       )}>
-      {!sticky ? <LeftSidePattern /> : <div></div>}
+      {!sticky ? <div></div> : <div></div>}
+      {/* {!sticky ? <LeftSidePattern /> : <div></div>} */}
       {/* {!sticky ? <LeftSidePattern /> : !isMobile ? <LeftSidePattern /> : null} */}
 
       <nav
@@ -160,7 +163,8 @@ const Header = ({ className }: HeaderProps) => {
           </div>
         </div>
       </nav>
-      {!sticky ? <RightSidePattern /> : <div></div>}
+      {!sticky ? <div></div> : <div></div>}
+      {/* {!sticky ? <RightSidePattern /> : <div></div>} */}
     </motion.header>
   );
 };

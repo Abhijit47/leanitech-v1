@@ -62,8 +62,12 @@ export default function AppLayout({
       className={`${lato.variable} ${nunito.variable} ${ibm_plex_mono.variable}`}
       suppressHydrationWarning>
       {/* <link rel='icon' href='/favicons/favicon.svg' /> */}
-      <body className={`font-body antialiased overflow-x-hidden relative`}>
-        <Providers>{children}</Providers>
+      <body className={`font-body antialiased relative`}>
+        <Providers>
+          <div className={'isolate'}>
+            <div className={'overflow-x-hidden max-w-screen'}>{children}</div>
+          </div>
+        </Providers>
         <WhatsAppWidget
           number='+918870238256'
           message='Hello! I have a question about your services.'

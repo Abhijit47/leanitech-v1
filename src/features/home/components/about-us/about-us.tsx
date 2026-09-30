@@ -87,7 +87,7 @@ function AboutUs({
   return (
     <section
       id='about-us'
-      className='max-w-(--breakpoint-xl) mx-auto px-4 sm:px-6 lg:py-20 sm:py-16 py-8 overflow-hidden'>
+      className='max-w-(--breakpoint-xl) mx-auto px-4 sm:px-6 lg:py-20 sm:py-16 py-8'>
       <div className='flex flex-col items-center justify-center gap-8 md:gap-16'>
         <motion.div
           initial={{ y: -40, opacity: 0 }}
