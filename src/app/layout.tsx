@@ -62,7 +62,7 @@ export default function AppLayout({
       className={`${lato.variable} ${nunito.variable} ${ibm_plex_mono.variable}`}
       suppressHydrationWarning>
       {/* <link rel='icon' href='/favicons/favicon.svg' /> */}
-      <body className={`font-body antialiased relative`}>
+      <body className={`font-body antialiased`}>
         <Providers>
           <div className={'isolate'}>
             <div className={'overflow-x-hidden max-w-screen'}>{children}</div>

@@ -67,7 +67,9 @@ export default function AboutPage() {
     'max-w-(--breakpoint-xl) w-full px-4 2xl:px-0 mx-auto';
 
   return (
-    <main className={'relative'}>
+    <main
+      // className={'relative'}
+      className={'relative pt-28 xs:pt-24 sm:pt-16 md:pt-12 lg:pt-8'}>
       {!isDev && (
         <div className='absolute inset-0 pointer-events-none -z-1'>
           <SplashCursor

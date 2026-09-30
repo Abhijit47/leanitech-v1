@@ -74,7 +74,7 @@ const Header = ({ className }: HeaderProps) => {
       className={cn(
         // 'z-50 sticky h-16',
         'z-50 fixed inset-x-0',
-        'top-0!',
+        'top-0',
         // isMobile ? '-top-7' : 'top-0',
         sticky ? 'mt-2 transition-all duration-300' : '',
         // !sticky ? 'top-0' : '-top-52 md:top-4 transition-all duration-300',

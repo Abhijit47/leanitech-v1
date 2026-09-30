@@ -31,7 +31,7 @@ export const navigations: NavigationSection[] = [
   },
   {
     title: 'Portfolios',
-    href: 'portfolios',
+    href: '/portfolios',
   },
   {
     title: 'Faqs',
